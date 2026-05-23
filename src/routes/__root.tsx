@@ -9,7 +9,6 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import { ThemeProvider } from "../lib/theme";
 import { Toaster } from "../components/ui/sonner";
 
 function NotFoundComponent() {
@@ -89,4 +88,59 @@ export const Route =
   createRootRouteWithContext<{ queryClient: QueryClient }>()({
     head: () => ({
       meta: [
-        { charSet: "utf-8
+        { charSet: "utf-8" },
+
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1",
+        },
+
+        { title: "DAM — Lâminas de Promoção" },
+
+        {
+          name: "description",
+          content:
+            "Gestor de lâminas semanais para o time comercial.",
+        },
+      ],
+
+      links: [
+        { rel: "stylesheet", href: appCss },
+      ],
+    }),
+
+    shellComponent: RootShell,
+    component: RootComponent,
+    notFoundComponent: NotFoundComponent,
+    errorComponent: ErrorComponent,
+  });
+
+function RootShell({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="pt-BR">
+      <head>
+        <HeadContent />
+      </head>
+
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
+
+function RootComponent() {
+  const { queryClient } = Route.useRouteContext();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Outlet />
+      <Toaster richColors position="top-center" />
+    </QueryClientProvider>
+  );
+}
