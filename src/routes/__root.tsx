@@ -87,26 +87,25 @@ function ErrorComponent({
 export const Route =
   createRootRouteWithContext<{ queryClient: QueryClient }>()({
     head: () => ({
-      meta: [
-        { charSet: "utf-8" },
+  meta: [
+    { charSet: "utf-8" },
 
-        {
-          name: "viewport",
-          content: "width=device-width, initial-scale=1",
-        },
+    {
+      name: "viewport",
+      content: "width=device-width, initial-scale=1",
+    },
 
-        {
-          title: "DAM — Lâminas de Promoção",
-        },
+    { title: "DAM — Lâminas de Promoção" },
 
-        {
-          name: "description",
-          content: "Gestor de lâminas semanais para o time comercial.",
-        },
-      ],
+    {
+      name: "description",
+      content:
+        "Gestor de lâminas semanais para o time comercial.",
+    },
+  ],
 
-      links: [{ rel: "stylesheet", href: appCss }],
-    }),
+  links: [{ rel: "stylesheet", href: appCss }],
+}),
 
     shellComponent: RootShell,
     component: RootComponent,
