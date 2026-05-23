@@ -95,18 +95,17 @@ export const Route =
           content: "width=device-width, initial-scale=1",
         },
 
-        { title: "DAM — Lâminas de Promoção" },
+        {
+          title: "DAM — Lâminas de Promoção",
+        },
 
         {
           name: "description",
-          content:
-            "Gestor de lâminas semanais para o time comercial.",
+          content: "Gestor de lâminas semanais para o time comercial.",
         },
       ],
 
-      links: [
-        { rel: "stylesheet", href: appCss },
-      ],
+      links: [{ rel: "stylesheet", href: appCss }],
     }),
 
     shellComponent: RootShell,
