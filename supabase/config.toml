@@ -1,0 +1,7 @@
+project_id = "aksfeihlysrdciwbvbze"
+
+[functions.generate-copy]
+verify_jwt = true
+
+[functions.manage-users]
+verify_jwt = true
